@@ -13,7 +13,7 @@ export function Home() {
   const [friends, setFriends] = useState([]);
 
   async function handleSearch(){
-    const response = await fetch(`http://192.168.15.21:3333/friends?q=${name}`);
+    const response = await fetch(`http://192.168.0.110:3333/friends?q=${name}`);
     const data = await response.json();
 
     const formattedDate = data.map((item: Data) => {
@@ -48,12 +48,12 @@ export function Home() {
         onPress={handleSearch}
       />
 
-      <ScrollView style={styles.list}>
-        <FriendList 
-            data={friends}
-            follow={handleFollow}
-        />
-      </ScrollView>
+      
+     <FriendList 
+        data={friends}
+        follow={handleFollow}
+     />
+      
       
     </View>
   )
